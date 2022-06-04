@@ -5,16 +5,22 @@
     <meta charset="utf-8">
     <meta name="why" content="G"/>
     <script>
+        function addzero(number){
+            if(number<10)
+                return "0"+number.toString();
+            else 
+                return number.toString();
+        }
         function calculate(){
     var sec = Math.floor((new Date("2022-06-24 12:00")- new Date())/(1000))
     var real = sec
-    var days = Math.floor(sec/(3600*24))
+    var days = addzero(Math.floor(sec/(3600*24)))
     real-=days*(3600*24)
-    var hours = Math.floor(real/(3600));
+    var hours = addzero(Math.floor(real/(3600)));
     real -= hours*3600;
-    var min = Math.floor(real/60)
+    var min = addzero(Math.floor(real/60))
     real-=min*60
-    var timesting = `${days}:${hours}:${min}:${real}`
+    var timesting = `${days}:${hours}:${min}:${addzero(real)}`
     document.getElementById("time").innerHTML = timesting;
         }
         var interval = setInterval(calculate,1000)
