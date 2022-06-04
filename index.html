@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>?</title>
+    <meta charset="utf-8">
+    <meta name="why" content="G"/>
+    <script>
+        var interval = setInterval(()=>{
+    var sec = Math.floor((new Date("2022-06-24 12:00")- new Date())/(1000))
+    var real = sec
+    var days = Math.floor(sec/(3600*24))
+    real-=days*(3600*24)
+    var hours = Math.floor(real/(3600));
+    real -= hours*3600;
+    var min = Math.floor(real/60)
+    real-=min*60
+    var timesting = `${days}:${hours}:${min}:${real}`
+    document.getElementById("time").innerHTML = timesting;
+},1000)
+    </script>
+    <style>
+        #center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="center">
+        <h1>?</h1>
+        <h1 id="time"></h1>
+    </div>
+</body>
+</html>
