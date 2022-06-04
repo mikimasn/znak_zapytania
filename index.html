@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="why" content="G"/>
     <script>
-        var interval = setInterval(()=>{
+        function calculate(){
     var sec = Math.floor((new Date("2022-06-24 12:00")- new Date())/(1000))
     var real = sec
     var days = Math.floor(sec/(3600*24))
@@ -16,7 +16,8 @@
     real-=min*60
     var timesting = `${days}:${hours}:${min}:${real}`
     document.getElementById("time").innerHTML = timesting;
-},1000)
+        }
+        var interval = setInterval(calculate,1000)
     </script>
     <style>
         #center{
@@ -25,12 +26,22 @@
             left: 50%;
             transform: translate(-50%,-50%);
         }
+        #time{
+            font-size: 100px;
+            font-family: "Times New Roman", Times, serif;
+        }
+        #centretext{
+            font-size: 50px;
+            font-family: "Times New Roman", Times, serif;
+            width: 100%;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="center">
-        <h1>?</h1>
-        <h1 id="time"></h1>
+        <h1 id="centretext">?</h1>
+        <h1 id="time" onload="calculate()"></h1>
     </div>
 </body>
 </html>
